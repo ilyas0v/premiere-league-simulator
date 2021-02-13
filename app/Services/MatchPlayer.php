@@ -30,10 +30,18 @@ class MatchPlayer
 
     public function give_score($home_team, $guest_team)
     {
-        // if($home_team->goal_drawn > $guest_team->goal_drawn)
-        // {
-        //     //
-        // }
+        $rand = rand(0, 10);
+
+        if($home_team->points > $guest_team->points && $rand > 0)
+        {
+            $home_team->win($rand);
+            $guest_team->lose($rand);
+        }
+        else if($home_team->points < $guest_team->points && $rand > 0)
+        {
+            $home_team->lose($rand);
+            $guest_team->win($rand);
+        }
     }
     
 }
