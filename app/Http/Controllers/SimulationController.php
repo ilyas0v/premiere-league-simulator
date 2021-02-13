@@ -41,7 +41,7 @@ class SimulationController extends Controller
 
         foreach($matches_by_week as $match)
         {
-            return (new MatchPlayer)->play($match);
+            (new MatchPlayer)->play($match);
         }
     }
 }

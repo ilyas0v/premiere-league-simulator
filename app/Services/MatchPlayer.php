@@ -30,8 +30,10 @@ class MatchPlayer
 
     public function give_score($home_team, $guest_team)
     {
-        $home_team->played = 1;
-        $home_team->save();
+        // if($home_team->goal_drawn > $guest_team->goal_drawn)
+        // {
+        //     //
+        // }
     }
     
 }

@@ -26,15 +26,20 @@ class Standing extends Model
 
     public function win($points)
     {
-        $this->points += $points;
-        $this->wins   += 1;
-        $this->played += 1;   
+        $this->points     += $points;
+        $this->wins       += 1;
+        $this->played     += 1;   
+        $this->goal_drawn += $points;   
+        $this->save();
     }
 
 
 
     public function lose($points)
     {
+        $this->played     += 1;  
+        $this->goal_drawn -= $points;
+        $this->save();
 
     }
 
@@ -42,6 +47,7 @@ class Standing extends Model
 
     public function draw()
     {
-
+        $this->played = 1;
+        $this->save();
     }
 }
